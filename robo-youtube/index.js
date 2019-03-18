@@ -4,10 +4,14 @@ const robots = {
 }
 
  async function start() {
-   const content = {}
+   const content = {
+      maximumSentences: 7
+   }
 
    content.searchTerm = askAndReturnSearchTerm()
    content.prefix = askAndReturnPrefix()
+
+   await robots.text(content)
 
 function askAndReturnSearchTerm() {
          return  readline.question('Type a wikipedia search term:')
@@ -22,11 +26,9 @@ function askAndReturnSearchTerm() {
    }
 
 
-       await robots.text(content)
+    console.log(JSON.stringify(content, null, 4))
 
-   	robots.user
-
-   	console.log(content)
+      
 }
 
 start()
